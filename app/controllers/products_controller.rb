@@ -10,5 +10,13 @@ class ProductsController < ApplicationController
         render json: @product
       end
 
-      
+      def create
+        @product = Product.new(product_params)
+        if @product.save
+            render json: @product
+        else
+            render json: @product.errors, status: :unprocessable_entity
+            end
+      end
+
 end
