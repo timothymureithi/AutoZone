@@ -36,10 +36,16 @@ class UsersController < ApplicationController
             else
                 render json: { status: 500, errors: @user.errors.full_messages}
             end
-    end
+     end
 
-    
-
+     def update
+        @user = User.find(params[:id])
+        if @user.update(user_params)
+            render json: @user
+        else
+            render json: @user.errors, status: :unprocessable_entity
+        end
+     end
   
   private
       
