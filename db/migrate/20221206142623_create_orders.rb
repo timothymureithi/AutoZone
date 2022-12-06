@@ -1,6 +1,6 @@
 class CreateOrders < ActiveRecord::Migration[7.0]
   def change
-    create_table :orders id: :uuid  do |t|
+    create_table :orders, id: :uuid  do |t|
       t.string :user_id
       t.jsonb :cartItems
       t.jsonb :shipping
