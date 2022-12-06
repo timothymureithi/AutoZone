@@ -9,4 +9,6 @@ class ProductsController < ApplicationController
         @product.update_product
         render json: @product
       end
+
+      
 end
